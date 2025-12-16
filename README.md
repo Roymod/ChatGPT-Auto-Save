@@ -10,7 +10,7 @@
   <a href="./README.md">
     <img alt="中文 README" src="https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-brightgreen?style=for-the-badge">
   </a>
-  <a href="./ReadEN-US.me">
+  <a href="./README_EN.md">
     <img alt="English README" src="https://img.shields.io/badge/README-English-blue?style=for-the-badge">
   </a>
 </p>
