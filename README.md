@@ -1,7 +1,4 @@
 # ChatGPT-Auto-Save
-既然是基于开源项目改版，在 README 中明确致谢并保留原作者的版权声明是非常重要的开源礼仪，同时也符合 MIT 协议的要求。
-
-我已经修改了 README 文件，在显眼位置添加了致谢声明，并调整了部分措辞以体现你的改版工作。你可以直接复制使用。
 
 🤖 ChatGPT Auto Backup & Exporter (Beta)
 
