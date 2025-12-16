@@ -6,7 +6,7 @@
 ![alt text](https://img.shields.io/badge/Manifest-V3-green)
 ![alt text](https://img.shields.io/badge/license-MIT-orange)
 
-[![English README](https://img.shields.io/badge/README-English-blue?style=for-the-badge)](./Read EN-US.md)
+[![English README](https://img.shields.io/badge/README-English-blue?style=for-the-badge)](./ReadEN-US.md)
 
 
 Power By Raymond
