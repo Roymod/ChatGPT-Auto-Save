@@ -2,6 +2,10 @@
 
 🤖 ChatGPT Auto Backup & Import (Beta)
 
+> [!WARNING]
+> 该 README 文件由 AI 总结概括，如有错误敬请谅解。
+
+
 ![alt text](https://img.shields.io/badge/LastUpdated-2025.12.12-blue)
 ![alt text](https://img.shields.io/badge/Manifest-V3-green)
 ![alt text](https://img.shields.io/badge/license-MIT-orange)
