@@ -17,7 +17,7 @@ Power By Raymond
 
 🤝 致谢与声明 (Credits)
 
-本项目基于 ChatGPT_Exporter (Author: zjt666666zjt) 进行二次开发与改版。
+本项目基于 ChatGPT_Exporter (https://github.com/zjt666666zjt/ChatGPT_Exporter) 进行二次开发与改版。
 
 遵循 MIT License 开源协议，本项目在原版基础上进行了以下改进：
 
