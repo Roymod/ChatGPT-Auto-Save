@@ -124,24 +124,3 @@ jszip.min.js: 用于打包 ZIP 文件。
 
 Original Project: ChatGPT_Exporter © zjt666666zjt
 Modifications: © 2025 Raymond
-
-(English Summary)
-
-🤖 ChatGPT Auto Backup & Exporter
-
-An enhanced version based on ChatGPT_Exporter.
-
-Enhancements
-
-Redesigned UI: Glassmorphism style.
-
-Auto-Backup: Silent background backups with network time synchronization (time.is).
-
-Restore/Import: Experimental feature to re-upload chats.
-
-Safety: Prevent accidental tab closing.
-
-License
-
-MIT License.
-Based on work by zjt666666zjt(https://github.com/zjt666666zjt/ChatGPT_Exporter). Modified by Raymond(https://github.com/Roymod).
