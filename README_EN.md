@@ -1,4 +1,8 @@
-# 🤖 ChatGPT Auto Backup & Exporter (Beta)
+# 🤖 ChatGPT Auto Backup, Export & Restore (Beta)
+
+> [!WARNING]
+> This README is summarized by AI. Please excuse any inaccuracies.
+
 
 ![alt text](https://img.shields.io/badge/version-2025.12.12-blue)
 ![alt text](https://img.shields.io/badge/Manifest-V3-green)
