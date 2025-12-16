@@ -128,6 +128,8 @@ ui.js: 页面内的悬浮状态窗代码。
 
 jszip.min.js: 用于打包 ZIP 文件。
 
+---
+
 ⚠️ 免责声明 (Disclaimer)
 
 数据隐私：本插件运行在您的本地浏览器中，不会将您的对话数据或 Token 发送到任何第三方服务器。
@@ -140,11 +142,16 @@ jszip.min.js: 用于打包 ZIP 文件。
 
 责任限制：开发者不对因使用本工具导致的账号限制或数据丢失承担责任。请遵守 OpenAI 的服务条款。
 
+---
+
 📄 许可证 (License)
 
 本项目遵循 MIT License。
 
 这意味着您可以自由地使用、复制、修改和分发本项目，但必须保留原作者的版权声明和许可声明。
 
+---
+
 Original Project: ChatGPT_Exporter © zjt666666zjt
+
 Modifications: © 2025 Raymond
