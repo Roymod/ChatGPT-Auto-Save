@@ -12,9 +12,7 @@
 Power By Raymond
 这是一个基于 Chrome Extension V3 架构的增强版插件，用于自动备份、导出和恢复 ChatGPT 对话记录。
 
-![alt text](screenshots/preview.png)
-
-<img width="324" height="600" alt="image" src="https://github.com/user-attachments/assets/457afc05-7365-4607-814c-4e2d29533f56" />
+![alt text](<img width="324" height="600" alt="image" src="https://github.com/user-attachments/assets/457afc05-7365-4607-814c-4e2d29533f56" />)
 
 
 🤝 致谢与声明 (Credits)
