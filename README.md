@@ -1,6 +1,6 @@
 # ChatGPT-Auto-Save
 
-🤖 ChatGPT Auto Backup & Import (Beta)
+🤖 ChatGPT Auto Backup, Export & Restore (Beta)
 
 > [!WARNING]
 > 该 README 文件由 AI 总结概括，如有错误敬请谅解。
