@@ -14,6 +14,8 @@ Power By Raymond
 
 ![alt text](screenshots/preview.png)
 
+<img width="324" height="600" alt="image" src="https://github.com/user-attachments/assets/457afc05-7365-4607-814c-4e2d29533f56" />
+
 
 🤝 致谢与声明 (Credits)
 
