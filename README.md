@@ -26,6 +26,8 @@
 
 <img width="324" height="600" alt="image" src="https://github.com/user-attachments/assets/457afc05-7365-4607-814c-4e2d29533f56" />
 
+---
+
 🤝 致谢与声明 (Credits)
 
 本项目基于 ChatGPT_Exporter (https://github.com/zjt666666zjt/ChatGPT_Exporter) 进行二次开发与改版。
@@ -41,6 +43,8 @@
 
 感谢原作者提供的优秀基础代码！
 
+---
+
 ✨ 核心功能 (Features)
 
 📤 多格式导出：支持一键导出对话为 JSON (兼容官方格式), Markdown, HTML。
@@ -53,6 +57,8 @@
 
 静默运行：仅在打开 ChatGPT 页面时触发，不占用后台资源。
 
+---
+
 📥 实验性导入/恢复：
 
 支持将备份的 JSON/MD/HTML 文件重新“导入”回 ChatGPT。
@@ -60,6 +66,8 @@
 原理：自动创建新对话并以文件形式上传上下文，模拟人类操作。
 
 🏢 Team 团队版支持：支持指定 Workspace ID，完美适配 ChatGPT Team 账号。
+
+---
 
 🛡️ 安全与防护：
 
@@ -69,6 +77,7 @@
 
 🎨 沉浸式 UI：带有流光背景的 Popup 面板及页面右下角的状态悬浮窗。
 
+---
 
 📖 使用说明 (Usage)
 1. 手动导出
