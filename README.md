@@ -148,4 +148,4 @@ Safety: Prevent accidental tab closing.
 License
 
 MIT License.
-Based on work by zjt666666zjt. Modified by Raymond.
+Based on work by zjt666666zjt(https://github.com/zjt666666zjt/ChatGPT_Exporter). Modified by Raymond(https://github.com/Roymod).
