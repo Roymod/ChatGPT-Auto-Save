@@ -6,8 +6,6 @@
 ![alt text](https://img.shields.io/badge/Manifest-V3-green)
 ![alt text](https://img.shields.io/badge/license-MIT-orange)
 
-[![English README](https://github.com/Roymod/ChatGPT-Auto-Save/blob/main/ReadEN-US.me)](./ReadEN-US.md)
-
 
 Power By Raymond
 这是一个基于 Chrome Extension V3 架构的增强版插件，用于自动备份、导出和恢复 ChatGPT 对话记录。
