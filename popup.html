@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="color-scheme" content="dark light">
+
+  <style>
+    :root{
+      --bard-blue:    rgba(42, 153, 224, 0.72);  /* #2A99E0 */
+      --bard-indigo:  rgba(107, 128, 211, 0.60); /* #6B80D3 */
+      --bard-violet:  rgba(142, 118, 205, 0.60); /* #8E76CD */
+      --bard-magenta: rgba(175, 109, 171, 0.56); /* #AF6DAB */
+      --bard-pink:    rgba(201, 102, 133, 0.54); /* #C96685 */
+      --bard-coral:   rgba(217, 103, 110, 0.50); /* #D9676E */
+      --bard-orange:  rgba(231, 131,  87, 0.62); /* #E78357 */
+      --bard-mist:    rgba(216, 189, 206, 0.30); /* #D8BDCE */
+
+
+      --flow-speed: 14s;       
+      --flow-shift: 22%;
+      --flow-rotate: 12deg; 
+
+
+      --primary-color: #10a37f;
+      --primary-hover: #0d8a6c;
+
+      --text-color: rgba(255,255,255,0.92);
+      --text-secondary: rgba(255,255,255,0.66);
+
+      --glass-bg: rgba(18, 18, 18, 0.20);
+      --glass-border: rgba(255, 255, 255, 0.12);
+
+      --input-bg: rgba(255,255,255,0.06);
+      --radius: 16px;
+    }
+
+    *{
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+
+    body{
+      width: 320px;
+      margin: 0;
+      padding: 10px;
+      min-height: 100vh;
+      color: var(--text-color);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      position: relative;
+      overflow: hidden;
+
+      background: linear-gradient(180deg, #04050a 0%, #070b16 52%, #04050a 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -45%;
+      pointer-events: none;
+
+      background:
+        radial-gradient(520px 420px at 54% 46%, var(--bard-blue)    0%, transparent 58%),
+        radial-gradient(520px 460px at 74% 26%, var(--bard-violet)  0%, transparent 60%),
+        radial-gradient(520px 520px at 22% 18%, var(--bard-magenta) 0%, transparent 62%),
+        radial-gradient(560px 520px at 18% 86%, var(--bard-orange)  0%, transparent 63%),
+        radial-gradient(540px 540px at 90% 84%, var(--bard-pink)    0%, transparent 66%),
+        radial-gradient(520px 520px at 14% 54%, var(--bard-indigo)  0%, transparent 68%),
+        radial-gradient(720px 260px at 52% 10%, var(--bard-mist)    0%, transparent 70%);
+
+      filter: blur(24px) saturate(170%) contrast(1.03);
+      opacity: 0.96;
+      
+      z-index: 0;
+
+      transform: translate3d(var(--flow-shift), var(--flow-shift), 0) rotate(0deg) scale(1.08);
+      animation: bardDrift var(--flow-speed) ease-in-out infinite;
+    }
+
+    @keyframes bardDrift {
+      0% {
+        transform: translate3d(var(--flow-shift), var(--flow-shift), 0) rotate(0deg) scale(1.08);
+      }
+      50% {
+        transform:
+          translate3d(calc(var(--flow-shift) * -1), calc(var(--flow-shift) * -1), 0)
+          rotate(var(--flow-rotate))
+          scale(1.10);
+      }
+      100% {
+        transform: translate3d(var(--flow-shift), var(--flow-shift), 0) rotate(0deg) scale(1.08);
+      }
+    }
+
+    body::after{
+      content:"";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"),
+        radial-gradient(circle at 50% 10%, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.42) 74%);
+
+      background-size: 180px 180px, 100% 100%;
+      background-repeat: repeat, no-repeat;
+      mix-blend-mode: overlay;
+      opacity: 0.22;
+    }
+
+    .container{
+      min-height: 100vh;
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow:
+        0 22px 70px rgba(0,0,0,0.55),
+        inset 0 1px 0 rgba(255,255,255,0.16);
+      position: relative;
+      z-index: 1;
+    }
+
+    h2{ display:none; }
+
+    .tabs{
+      display:flex;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      flex-shrink: 0;
+
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 10px 26px rgba(0,0,0,0.18);
+
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
+    }
+
+    .tab{
+      flex: 1;
+      text-align: center;
+      padding: 8px;
+      font-size: 13px;
+      font-weight: 650;
+      cursor: pointer;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      color: rgba(255,255,255,0.62);
+      user-select: none;
+    }
+    .tab.active{
+      background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.10));
+      color: rgba(255,255,255,0.96);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.26), inset 0 1px 0 rgba(255,255,255,0.18);
+    }
+
+    .panel{ display:none; flex:1; animation: fadeIn 0.18s ease; }
+    .panel.active{ display:flex; flex-direction:column; }
+    @keyframes fadeIn{
+      from { opacity: 0; transform: translateY(5px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .formats{ display:flex; gap:8px; margin-bottom:16px; }
+    .fmt-item{
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 10px 0;
+      text-align: center;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 650;
+      transition: all 0.2s;
+      color: rgba(255,255,255,0.72);
+
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+    }
+    .fmt-item.active{
+      background: rgba(16, 163, 127, 0.16);
+      border-color: rgba(16, 163, 127, 0.45);
+      color: rgba(255,255,255,0.95);
+      box-shadow: 0 10px 26px rgba(16,163,127,0.14), inset 0 1px 0 rgba(255,255,255,0.18);
+    }
+
+    .row{ margin-bottom: 12px; font-size: 13px; color: rgba(255,255,255,0.82); }
+    label{ display:flex; align-items:center; gap:8px; cursor:pointer; user-select:none; }
+
+    input[type="number"], input[type="text"], select{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+      color: rgba(255,255,255,0.92);
+      transition: .2s;
+
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+    }
+    input[type="number"]{ width: 50px; margin-left: 6px; text-align: center; }
+    input[type="text"]{ width: 100%; margin-top: 6px; }
+    select{ width: 100%; margin-top: 6px; cursor: pointer; }
+    select option{ background: #101216; color: #fff; }
+
+    .btn{
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, rgba(16,163,127,0.95) 0%, rgba(13,138,108,0.95) 100%);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 14px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      transition: all 0.2s;
+      box-shadow: 0 14px 36px rgba(16,163,127,0.22);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .btn:disabled{
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.50);
+      box-shadow: none;
+      cursor: default;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .auto-backup-box{
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 14px;
+      margin-top: auto;
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 10px 26px rgba(0,0,0,0.16);
+    }
+    .backup-header{
+      font-weight: 700;
+      font-size: 13px;
+      color: rgba(255,255,255,0.92);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .switch { position: relative; display: inline-block; width: 42px; height: 24px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; inset: 0; background-color: rgba(255,255,255,0.18); transition: .3s; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); }
+    .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 2px; top: 1px; background-color: rgba(255,255,255,0.92); transition: .3s; border-radius: 50%; box-shadow: 0 6px 14px rgba(0,0,0,0.45); }
+    input:checked + .slider { background-color: rgba(16,163,127,0.60); border-color: rgba(16,163,127,0.55); }
+    input:checked + .slider:before { transform: translateX(18px); }
+
+    .import-box{
+      border: 2px dashed rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 40px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-bottom: 16px;
+      color: rgba(255,255,255,0.72);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
+    }
+    .import-hint{ font-size: 12px; color: rgba(255,255,255,0.50); margin-top: 8px; }
+
+    .progress-box{
+      display: none;
+      margin-top: 14px;
+      padding: 10px 10px 8px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+    }
+    .progress-bar{
+      height: 7px;
+      background: rgba(255,255,255,0.10);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 6px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .progress-fill{
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg,
+        rgba(42,153,224,0.95),
+        rgba(175,109,171,0.95),
+        rgba(231,131,87,0.95),
+        rgba(201,102,133,0.95),
+        rgba(42,153,224,0.95)
+      );
+      background-size: 220% 100%;
+      animation: sheen 2.2s ease infinite;
+      transition: width 0.35s ease;
+      box-shadow: 0 0 18px rgba(42,153,224,0.18);
+    }
+    @keyframes sheen{
+      0%{ background-position: 0% 50%; }
+      100%{ background-position: 100% 50%; }
+    }
+    .status-text{
+      font-size: 12px;
+      color: rgba(255,255,255,0.72);
+      text-align: center;
+      font-weight: 650;
+    }
+
+    .hidden{ display:none; }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.20); border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.30); }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="tabs" id="main-tabs">
+      <div class="tab active" data-target="panel-export">📤 导出</div>
+      <div class="tab" data-target="panel-import">📥 导入</div>
+    </div>
+
+    <div id="panel-export" class="panel active">
+      <div class="tabs" style="margin-bottom: 12px;">
+        <div class="tab active" data-mode="personal">👤 个人</div>
+        <div class="tab" data-mode="team">🏢 团队</div>
+      </div>
+
+      <div class="formats">
+        <div class="fmt-item active" id="btn-json">JSON</div>
+        <div class="fmt-item active" id="btn-md">MD</div>
+        <div class="fmt-item active" id="btn-html">HTML</div>
+      </div>
+
+      <div class="row">
+        <label><input type="radio" name="range" value="all" checked> 全部历史</label>
+      </div>
+
+      <div class="row">
+        <label>
+          <input type="radio" name="range" value="recent">
+          最近 <input type="number" id="limit-count" value="20" disabled> 条
+        </label>
+      </div>
+
+      <div class="row">
+        <label><input type="checkbox" id="include-projects" checked> 包含 Project 文件</label>
+      </div>
+
+      <div id="team-input-box" class="row hidden">
+        <div style="margin-bottom:6px; font-weight:700; font-size:12px; color:rgba(255,255,255,0.72);">Workspace ID:</div>
+        <input type="text" id="workspace-id" placeholder="自动检测中...">
+      </div>
+
+      <button id="start-btn" class="btn">开始导出</button>
+
+      <div class="auto-backup-box">
+        <div class="backup-header">
+          <span>🔄 自动备份 </span>
+          <label class="switch">
+            <input type="checkbox" id="backup-toggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+
+      <div class="auto-backup-box" style="margin-top: 10px;">
+        <div class="backup-header">
+          <span>🚫 关闭页面前提醒</span>
+          <label class="switch">
+            <input type="checkbox" id="prevent-close-toggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="row" style="font-size:11px; color:rgba(255,255,255,0.55); line-height:1.4; margin-bottom:0; margin-top:8px;">
+          * 弹出关闭提醒，用来提醒保存数据。
+        </div>
+      </div>
+
+        <div id="backup-settings" class="hidden">
+          <div class="row" style="margin-bottom:8px; margin-top:12px;">
+            <select id="backup-interval">
+              <option value="1">每 1 分钟 (测试)</option>
+              <option value="60">每 1 小时</option>
+              <option value="720">每 12 小时</option>
+              <option value="1440">每 1 天</option>
+              <option value="4320">每 3 天</option>
+              <option value="10080">每 7 天</option>
+            </select>
+          </div>
+
+          <div class="row" style="font-size:11px; color:rgba(255,255,255,0.55); line-height:1.4; margin-bottom:0;">
+            * 浏览器运行时生效。仅备份最近 50 条。
+          </div>
+          <div style="font-size:11px; color:rgb(255, 255, 255); margin-top:6px; border-top:1px solid rgba(255, 255, 255, 0); padding-top:6px;">
+            上次备份: <span id="last-backup-time" style="color:#FFFFFF; font-weight:600;">暂无记录</span>
+          </div>
+        </div> 
+      </div>
+    </div>
+
+    <div id="panel-import" class="panel">
+      <div class="import-box" id="drop-zone">
+        <div style="font-size: 24px; margin-bottom: 8px;">📂</div>
+        <div style="font-weight: 700;">点击选择文件夹</div>
+        <div class="import-hint">支持 JSON / Markdown / HTML</div>
+        <input type="file" id="file-input" webkitdirectory multiple style="display:none">
+      </div>
+
+      <div class="row" style="font-size:12px; color:rgba(255,255,255,0.60); background:rgba(255,255,255,0.05); padding:12px; border-radius:14px; border:1px solid rgba(255,255,255,0.10); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);">
+        ⚠️ <b>机制说明：</b><br>
+        1. 模拟人工新建对话、上传文件。<br>
+        2. 自动修正标题。<br>
+        3. 请保持网页在前台，不要操作鼠标。
+      </div>
+
+      <button id="import-btn" class="btn" disabled>开始导入</button>
+    </div>
+
+    <div id="progress-area" class="progress-box">
+      <div class="progress-bar">
+        <div id="prog-fill" class="progress-fill"></div>
+      </div>
+      <div id="status-text" class="status-text">等待开始...</div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
