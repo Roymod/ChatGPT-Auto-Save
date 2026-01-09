@@ -32,7 +32,6 @@ If you do not wish to send data to DeepSeek, you can disable the "AI Autocomplet
 ## 4. Data Security
 
 *   **Local Processing:** The majority of the extension's operations (Export, UI Theming, Auto-Backup) occur entirely locally within your browser.
-*   **No Analytics:** We do not use Google Analytics or other tracking cookies to monitor your usage.
 
 ## 5. Changes to This Policy
 
