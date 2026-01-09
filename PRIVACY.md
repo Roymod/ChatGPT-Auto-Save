@@ -1,3 +1,8 @@
+<div align="right">
+    <a href="./PRIVACY_EN.md">
+        <img src="https://img.shields.io/badge/Language-English-blue?style=for-the-badge&logo=google-translate&logoColor=white" alt="Switch to English">
+    </a>
+</div>
 ---
 
 # 隐私政策 (Privacy Policy)
