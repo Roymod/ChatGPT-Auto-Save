@@ -1,6 +1,6 @@
 # Privacy Policy for ChatGPT Tools
 
-**Last Updated:** [Juan 9 2026, e.g., December 29, 2025]
+**Last Updated:** [Juan 9 2026]
 
 This Privacy Policy describes how **ChatGPT Tools** ("we", "us", or "our") collects, uses, and discloses information, and what choices you have with respect to the information.
 
