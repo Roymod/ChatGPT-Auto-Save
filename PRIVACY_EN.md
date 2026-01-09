@@ -1,3 +1,9 @@
+<div align="right">
+    <a href="./PRIVACY.md">
+        <img src="https://img.shields.io/badge/语言-中文-red?style=for-the-badge&logo=google-translate&logoColor=white" alt="切换到中文">
+    </a>
+</div>
+
 # Privacy Policy for ChatGPT Tools
 
 **Last Updated:** [Juan 9 2026]
